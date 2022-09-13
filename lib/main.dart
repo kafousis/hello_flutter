@@ -3,7 +3,7 @@ import 'package:hello_flutter/home.dart';
 import 'package:hello_flutter/profile.dart';
 
 // widgets start with capital letters and contain arguments
-// arguments start with lowercase letters
+// arguments start with lowercase letters and contain widgets or functions
 
 void main() {
   runApp(const MyApp());
