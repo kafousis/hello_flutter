@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/home.dart';
 import 'package:hello_flutter/list_demo.dart';
+import 'package:hello_flutter/rest_api.dart';
 
 // widgets start with capital letters and contain arguments
 // arguments start with lowercase letters and contain widgets or functions
@@ -50,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> pages = [
     const Home(),
     const ListDemo(),
+    const RestApi(),
   ];
 
   void _incrementCounter() {
@@ -84,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.list), label: 'List'),
+          NavigationDestination(icon: Icon(Icons.api), label: 'API'),
         ],
         onDestinationSelected: (int index) {
           setState(() {
