@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const int itemCount = 20;
 
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+class ListDemo extends StatelessWidget {
+  const ListDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

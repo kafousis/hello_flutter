@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/learn-flutter.dart';
+import 'package:hello_flutter/learn_flutter.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          // go to learn-flutter.dart
+          // go to learn_flutter.dart
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) {
