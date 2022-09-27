@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RestApi extends StatelessWidget {
@@ -6,18 +5,39 @@ class RestApi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(onPressed: () {}, child: const Text('GET /posts')),
-          ElevatedButton(onPressed: () {}, child: const Text('POST /posts')),
-          ElevatedButton(onPressed: () {}, child: const Text('PUT /posts/1')),
-          ElevatedButton(onPressed: () {}, child: const Text('PATCH /posts/1')),
-          ElevatedButton(onPressed: () {}, child: const Text('DELETE /posts/1')),
-        ],
+    return Container(
+      margin: const EdgeInsets.all(50.0),
+      width: double.infinity,
+      child: Expanded(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+
+              },
+              child: const Text('GET /posts'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('POST /posts'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('PUT /posts/1'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('PATCH /posts/1'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('PATCH /posts/1'),
+            ),
+          ],
+        ),
       ),
     );
-    return const Scaffold();
   }
 }
