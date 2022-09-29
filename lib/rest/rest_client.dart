@@ -1,5 +1,7 @@
 import "package:dio/dio.dart";
-import 'constants.dart' as constants;
+import 'package:flutter/cupertino.dart';
+import 'error_interceptor.dart';
+import '../constants.dart' as constants;
 
 class RestClient{
 
@@ -7,7 +9,7 @@ class RestClient{
   final dio = createClient;
 
   // *** singleton pattern with Dart's factory constructor ***
-  // a) private constructor
+  // a) private named constructor
   RestClient._internal();
 
   // b) the one and only instance of this singleton
@@ -28,27 +30,23 @@ class RestClient{
       sendTimeout: 15000,
     ));
 
-    dio.interceptors.addAll({
-      ClientInterceptors(),
-    });
+    // dio.interceptors.addAll({
+    //   ErrorInterceptor(),
+    //   SimpleInterceptor(),
+    // });
     return dio;
   }
 }
 
-class ClientInterceptors extends Interceptor {
+class SimpleInterceptor extends Interceptor {
 
   @override
   Future<dynamic> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    // do something before request is sent
-  }
-
-  @override
-  Future<dynamic> onError(DioError dioError, ErrorInterceptorHandler handler) async {
-    // do something to error
+    debugPrint("${options.method} ${options.path}");
   }
 
   @override
   Future<dynamic> onResponse(Response response, ResponseInterceptorHandler handler) async {
-    // do something before response
+    debugPrint(response.data);
   }
 }

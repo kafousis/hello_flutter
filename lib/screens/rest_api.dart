@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/services/user_service.dart';
+
+import '../models/user.dart';
 
 class RestApi extends StatelessWidget {
   const RestApi({Key? key}) : super(key: key);
@@ -15,25 +18,25 @@ class RestApi extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-
+                UserService().getUsers().then((value) => debugPrint(value.toString()));
               },
-              child: const Text('GET /posts'),
+              child: const Text('GET /users'),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: const Text('POST /posts'),
+              child: const Text('POST /users'),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: const Text('PUT /posts/1'),
+              child: const Text('PUT /users/1'),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: const Text('PATCH /posts/1'),
+              child: const Text('PATCH /users/1'),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: const Text('PATCH /posts/1'),
+              child: const Text('PATCH /users/1'),
             ),
           ],
         ),
