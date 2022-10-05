@@ -8,16 +8,14 @@ class RestClient{
   // immutable object, runtime-constant
   final dio = createClient;
 
-  // *** singleton pattern with Dart's factory constructor ***
-  // a) private named constructor
+  // private named constructor
   RestClient._internal();
 
-  // b) the one and only instance of this singleton
+  // the one and only instance of this singleton
   static final RestClient _instance = RestClient._internal();
 
-  // c) everytime this class is called, _instance is returned
+  // everytime this class is called, _instance is returned
   factory RestClient() => _instance;
-  // **********************************************************
 
   // same for every instance
   // can be accessed without creating an object
@@ -30,10 +28,10 @@ class RestClient{
       sendTimeout: 15000,
     ));
 
-    // dio.interceptors.addAll({
-    //   ErrorInterceptor(),
-    //   SimpleInterceptor(),
-    // });
+    dio.interceptors.addAll({
+       ErrorInterceptor()
+    //   SimpleInterceptor()
+    });
     return dio;
   }
 }

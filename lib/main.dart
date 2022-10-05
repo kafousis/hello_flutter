@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/screens/home.dart';
 import 'package:hello_flutter/screens/list_demo.dart';
-import 'package:hello_flutter/screens/rest_api.dart';
+import 'package:hello_flutter/screens/rest_api_ui.dart';
 
 // widgets start with capital letters and contain arguments
 // arguments start with lowercase letters and contain widgets or functions
