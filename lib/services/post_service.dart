@@ -31,4 +31,9 @@ class PostService {
     final response = await RestClient().dio.call().put('posts/${post.id}', data: post.toJson());
     return Post.fromJson(response.data);
   }
+
+  Future<Post> updatePostWithPatch(int id, String title, String body) async {
+    final response = await RestClient().dio.call().patch('posts/$id', data: {'title': title, 'body': body});
+    return Post.fromJson(response.data);
+  }
 }
