@@ -112,7 +112,13 @@ class RestApi extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Future<void> future = PostService().deletePost(1);
+                future.then((value) => debugPrint("Post deleted"))
+                    .catchError((e) {
+                  debugPrint("Error: $e");
+                });
+              },
               child: const Text(
                 'DELETE /posts/1',
                 style: TextStyle(fontSize: 22),

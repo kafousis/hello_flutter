@@ -36,4 +36,8 @@ class PostService {
     final response = await RestClient().dio.call().patch('posts/$id', data: {'title': title, 'body': body});
     return Post.fromJson(response.data);
   }
+
+  Future<void> deletePost(int id) async{
+    await RestClient().dio.call().delete('posts/$id');
+  }
 }
