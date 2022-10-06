@@ -38,7 +38,15 @@ class RestApi extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Post post = Post(1, 101, 'My awesome post', 'This is another awesome post');
+                Future<Post> future = PostService().createPost(post);
+                future
+                    .then((value) => debugPrint(value.toString()))
+                    .catchError((e) {
+                  debugPrint("Error: $e");
+                });
+              },
               child: const Text(
                 'POST /posts',
                 style: TextStyle(fontSize: 22),

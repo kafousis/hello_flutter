@@ -16,4 +16,9 @@ class PostService {
       final response = await RestClient().dio.call().get("posts/");
       return response.data.map<Post>((json) => Post.fromJson(json)).toList();
   }
+
+  Future<Post> createPost(Post post) async {
+    final response = await RestClient().dio.call().post("posts/", data: post.toJson());
+    return Post.fromJson(response.data);
+  }
 }

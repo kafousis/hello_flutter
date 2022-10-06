@@ -15,12 +15,12 @@ class Post {
   final String title;
   final String body;
 
+  Post(this.userId, this.id, this.title, this.body);
+
   @override
   String toString() {
-    return 'Post{userId: $userId, id: $id, title: $title';
+    return 'Post{userId: $userId, id: $id, title: $title, body: $body}';
   }
-
-  Post(this.userId, this.id, this.title, this.body);
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$PostFromJson()` constructor.
