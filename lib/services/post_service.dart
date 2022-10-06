@@ -13,12 +13,22 @@ class PostService {
   factory PostService() => _instance ??= PostService._();
 
   Future<List<Post>> getPosts() async {
-      final response = await RestClient().dio.call().get("posts/");
+      final response = await RestClient().dio.call().get('posts/');
       return response.data.map<Post>((json) => Post.fromJson(json)).toList();
   }
 
   Future<Post> createPost(Post post) async {
-    final response = await RestClient().dio.call().post("posts/", data: post.toJson());
+    final response = await RestClient().dio.call().post('posts/', data: post.toJson());
+    return Post.fromJson(response.data);
+  }
+
+  Future<Post> retrievePost(int id) async {
+    final response = await RestClient().dio.call().get('posts/$id');
+    return Post.fromJson(response.data);
+  }
+
+  Future<Post> updatePostWithPut(Post post) async {
+    final response = await RestClient().dio.call().put('posts/${post.id}', data: post.toJson());
     return Post.fromJson(response.data);
   }
 }

@@ -39,7 +39,7 @@ class RestApi extends StatelessWidget {
                 minimumSize: const Size.fromHeight(50),
               ),
               onPressed: () {
-                Post post = Post(1, 101, 'My awesome post', 'This is another awesome post');
+                Post post = Post(101, 1, 'My awesome post', 'This is another awesome post');
                 Future<Post> future = PostService().createPost(post);
                 future
                     .then((value) => debugPrint(value.toString()))
@@ -57,7 +57,33 @@ class RestApi extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Future<Post> future = PostService().retrievePost(1);
+                future
+                    .then((value) => debugPrint(value.toString()))
+                    .catchError((e) {
+                  debugPrint("Error: $e");
+                });
+              },
+              child: const Text(
+                'GET /posts/1',
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
+            SizedBox(height: spaceBetween),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(50),
+              ),
+              onPressed: () {
+                Post post = Post(1, 50, 'My updated post', 'This is an updated post');
+                Future<Post> future = PostService().updatePostWithPut(post);
+                future
+                    .then((value) => debugPrint(value.toString()))
+                    .catchError((e) {
+                  debugPrint("Error: $e");
+                });
+              },
               child: const Text(
                 'PUT /posts/1',
                 style: TextStyle(fontSize: 22),

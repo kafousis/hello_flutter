@@ -10,16 +10,16 @@ part 'post.g.dart';
 @JsonSerializable()
 class Post {
 
-  final int userId;
   final int id;
+  final int userId;
   final String title;
   final String body;
 
-  Post(this.userId, this.id, this.title, this.body);
+  Post(this.id, this.userId, this.title, this.body);
 
   @override
   String toString() {
-    return 'Post{userId: $userId, id: $id, title: $title, body: $body}';
+    return 'Post{id: $id, userId: $userId, title: $title, body: $body}';
   }
 
   /// A necessary factory constructor for creating a new User instance

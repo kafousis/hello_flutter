@@ -29,8 +29,8 @@ class RestClient{
     ));
 
     dio.interceptors.addAll({
-       ErrorInterceptor()
-    //   SimpleInterceptor()
+       ErrorInterceptor(),
+       SimpleInterceptor()
     });
     return dio;
   }
@@ -40,11 +40,7 @@ class SimpleInterceptor extends Interceptor {
 
   @override
   Future<dynamic> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    debugPrint("${options.method} ${options.path}");
-  }
-
-  @override
-  Future<dynamic> onResponse(Response response, ResponseInterceptorHandler handler) async {
-    debugPrint(response.data);
+    debugPrint('Http Request: ${options.method} ${options.path}');
+    return handler.next(options);
   }
 }
