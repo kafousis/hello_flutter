@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/services/post_service.dart';
+
+import '../models/post.dart';
 
 class RestApi extends StatelessWidget {
   const RestApi({Key? key}) : super(key: key);
@@ -11,16 +14,23 @@ class RestApi extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(40.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Future<List<Post>> future = PostService().getPosts();
+                future
+                    .then((value) => debugPrint(value.toString()))
+                    .catchError((e) {
+                  debugPrint("Error: $e");
+                });
+              },
               child: const Text(
-                'GET /users',
-                style: TextStyle(fontSize: 24),
+                'GET /posts',
+                style: TextStyle(fontSize: 22),
               ),
             ),
             SizedBox(height: spaceBetween),
@@ -30,8 +40,8 @@ class RestApi extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                'POST /users',
-                style: TextStyle(fontSize: 24),
+                'POST /posts',
+                style: TextStyle(fontSize: 22),
               ),
             ),
             SizedBox(height: spaceBetween),
@@ -41,8 +51,8 @@ class RestApi extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                'PUT /users/1',
-                style: TextStyle(fontSize: 24),
+                'PUT /posts/1',
+                style: TextStyle(fontSize: 22),
               ),
             ),
             SizedBox(height: spaceBetween),
@@ -52,8 +62,8 @@ class RestApi extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                'PATCH /users/1',
-                style: TextStyle(fontSize: 24),
+                'PATCH /posts/1',
+                style: TextStyle(fontSize: 22),
               ),
             ),
             SizedBox(height: spaceBetween),
@@ -63,8 +73,8 @@ class RestApi extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                'DELETE /users/1',
-                style: TextStyle(fontSize: 24),
+                'DELETE /posts/1',
+                style: TextStyle(fontSize: 22),
               ),
             ),
           ],
